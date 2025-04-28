@@ -12,6 +12,8 @@
 
 #include "Fixed.hpp"
 
+const int	nb_bits = 8;
+
 Fixed::Fixed(void)
 : val(0)
 {
@@ -19,7 +21,7 @@ Fixed::Fixed(void)
 }
 
 Fixed::Fixed(const Fixed &obj)
-: val(obj.getRawBits())
+: val(obj.val)
 {
 	std::cout << "Copy constructor called" << std::endl;
 }

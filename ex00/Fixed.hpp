@@ -18,7 +18,7 @@ class Fixed
 {
 	private:
 		int					val;
-		static const int	nb_bits = 8;
+		static const int	nb_bits;
 
 	public:
 		Fixed(void);
