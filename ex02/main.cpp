@@ -14,22 +14,67 @@
 
 int	main(void)
 {
-	Fixed a;
+	Fixed const a(15.63f);
 	Fixed const b(10);
 	Fixed const c(42.42f);
 	Fixed const d(b);
+	Fixed i(15.63f);
+	Fixed j(10.65f);
 
-	a = Fixed(1234.4321f);
+	std::cout << "----------------------- VALUES -------------------------------" << std::endl;
+	std:: cout << "a : " << a << std::endl;
+	std:: cout << "b : " << b << std::endl;
+	std:: cout << "c : " << c << std::endl;
+	std:: cout << "d : " << d << std::endl;
 
-	std::cout << "a is " << a << std::endl;
-	std::cout << "b is " << b << std::endl;
-	std::cout << "c is " << c << std::endl;
-	std::cout << "d is " << d << std::endl;
+	std::cout << "---------------- COMPARISON OPERATORS ------------------------" << std::endl;
+	if (a < b)
+		std::cout << "a < b" << std::endl;
+	else
+		std::cout << "a > b" << std::endl;
+	if (d > b)
+		std::cout << "d > b" << std::endl;
+	else
+		std::cout << "d < b" << std::endl;
+	if (a <= b)
+		std::cout << "a <= b" << std::endl;
+	else
+		std::cout << "a >= b" << std::endl;
+	if (a >= b)
+		std::cout << "a >= b" << std::endl;
+	else
+		std::cout << "a <= b" << std::endl;
+	if (b == d)
+		std::cout << "b == d" << std::endl;
+	else
+		std::cout << "b != d" << std::endl;
+	if (a != d)
+		std::cout << "a != d" << std::endl;
+	else
+		std::cout << "a == d" << std::endl;
 
-	std::cout << "a is " << a.toInt() << " as integer" << std::endl;
-	std::cout << "b is " << b.toInt() << " as integer" << std::endl;
-	std::cout << "c is " << c.toInt() << " as integer" << std::endl;
-	std::cout << "d is " << d.toInt() << " as integer" << std::endl;
+	std::cout << "---------------- ARITHMETIC OPERATORS ------------------------" << std::endl;
+	std::cout << "a + b = " << a + b << std::endl;
+	std::cout << "a - b = " << a - b << std::endl;
+	std::cout << "a * b = " << a * b << std::endl;
+	std::cout << "a / b = " << a / b << std::endl;
+
+	std::cout << "--------------- INCREMENT / DECREMENT OPERATORS --------------" << std::endl;
+	std :: cout << "i = " << i << std::endl;
+	std::cout << "++i = " << ++i << std::endl;
+	std::cout << "--i = " << --i << std::endl;
+	std :: cout << "i = " << i << std::endl;
+	std::cout << "i++ = " << i++ << std::endl;
+	std :: cout << "i = " << i << std::endl;
+	std::cout << "i-- = " << i-- << std::endl;
+	std :: cout << "i = " << i << std::endl;
+
+	std::cout << "--------------- INCREMENT / DECREMENT OPERATORS --------------" << std::endl;
+	std::cout << "min(a, b) = " << Fixed::min(a,b) << std::endl;
+	std::cout << "const min(i, j) = " << Fixed::min(i,j) << std::endl;
+	std::cout << "max(a, b) = " << Fixed::max(a,b) << std::endl;
+	std::cout << "const max(i, j) = " << Fixed::max(i,j) << std::endl;
+
 	return (0);
 }
  

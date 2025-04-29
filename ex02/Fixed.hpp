@@ -46,6 +46,16 @@ class Fixed
 		Fixed	operator-(const Fixed &f) const;
 		Fixed	operator*(const Fixed &f) const;
 		Fixed	operator/(const Fixed &f) const;
+
+		Fixed	&operator++(void);
+		Fixed	&operator--(void);
+		Fixed	operator++(int);
+		Fixed	operator--(int);
+
+		static Fixed	min(Fixed &i, Fixed &j);
+		static const Fixed	min(const Fixed &i, const Fixed &j);
+		static Fixed	max(Fixed &i, Fixed &j);
+		static const Fixed	max(const Fixed &i, const Fixed &j);
 };
 
 std::ostream	&operator<<(std::ostream &os, const Fixed &nb);

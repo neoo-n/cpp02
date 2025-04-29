@@ -1,4 +1,4 @@
-NAME	=	fixed1
+NAME	=	fixed2
 SRCS	=	main.cpp Fixed.cpp
 OBJS	=	${SRCS:.cpp=.o}
 CC		=	c++
