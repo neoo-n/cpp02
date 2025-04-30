@@ -77,7 +77,8 @@ int		Fixed::toInt(void) const
 	return (val >> nb_bits);
 }
 
-// OVERLOAD OPERATORS
+// -------------- OVERLOAD OPERATORS -----------------
+// COMPARISON OPERATOR
 bool	Fixed::operator<(const Fixed &f) const
 {
 	return (this->val < f.val);
@@ -108,36 +109,36 @@ bool	Fixed::operator!=(const Fixed &f) const
 	return (this->val != f.val);
 }
 
+// ARITHMETIC OPERATORS
 Fixed	Fixed::operator+(const Fixed &f) const
 {
-	Fixed	obj(0);
-	obj.setRawBits(this->val + f.val);
+	Fixed	obj(this->toFloat() + f.toFloat());
 	return (obj);
 }
 
 Fixed	Fixed::operator-(const Fixed &f) const
 {
-	Fixed	obj(0);
-	obj.setRawBits(this->val - f.val);
+	Fixed	obj(this->toFloat() - f.toFloat());
 	return (obj);
 }
 
 Fixed	Fixed::operator*(const Fixed &f) const
 {
-	Fixed	obj(0);
-	obj.setRawBits(this->val * f.val);
+	Fixed	obj(this->toFloat() * f.toFloat());
 	return (obj);
 }
 
 Fixed	Fixed::operator/(const Fixed &f) const
 {
-	if (f.val == 0)
-		return (0);
 	Fixed	obj(0);
-	obj.setRawBits(this->val / f.val);
+	if (f.toFloat() != 0)
+	{
+		obj.setRawBits(roundf((this->toFloat() / f.toFloat()) * (1 << nb_bits)));
+	}
 	return (obj);
 }
 
+// ITERATION OPERATORS
 Fixed	&Fixed::operator++(void)
 {
 	val++;
