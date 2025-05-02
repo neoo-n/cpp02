@@ -46,6 +46,7 @@ class Fixed
 		Fixed	operator-(const Fixed &f) const;
 		Fixed	operator*(const Fixed &f) const;
 		Fixed	operator/(const Fixed &f) const;
+		Fixed	operator*(const float &f) const;
 
 		Fixed	&operator++(void);
 		Fixed	&operator--(void);

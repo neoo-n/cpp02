@@ -18,37 +18,31 @@ const int	Fixed::nb_bits = 8;
 Fixed::Fixed(void)
 : val(0)
 {
-	// std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::Fixed(const Fixed &obj)
 : val(obj.val)
 {
-	// std::cout << "Copy constructor called" << std::endl;
 }
 
 Fixed::Fixed(const int i)
 : val(i << nb_bits)
 {
-	// std::cout << "Int constructor called" << std::endl;
 }
 
 Fixed::Fixed(const float i)
 : val(roundf(i * (1 << nb_bits)))
 {
-	// std::cout << "Float constructor called" << std::endl;
 }
 
 Fixed	&Fixed::operator=(const Fixed &obj)
 {
 	this->val = obj.getRawBits();
-	// std::cout << "Assignement operator called" << std::endl;
 	return (*this);
 }
 
 Fixed::~Fixed(void)
 {
-	std::cout << "Default destructor called" << std::endl;
 }
 
 //----------------- MEMBER METHODS ---------------------------
@@ -125,6 +119,12 @@ Fixed	Fixed::operator-(const Fixed &f) const
 Fixed	Fixed::operator*(const Fixed &f) const
 {
 	Fixed	obj(this->toFloat() * f.toFloat());
+	return (obj);
+}
+
+Fixed	Fixed::operator*(const float &f) const
+{
+	Fixed	obj(this->toFloat() * f);
 	return (obj);
 }
 

@@ -10,71 +10,27 @@
 /*                                                                            */
 /******************************************************************************/
 
-#include "Fixed.hpp"
+#include "Point.hpp"
 
 int	main(void)
 {
-	Fixed const a(15.63f);
-	Fixed const b(10);
-	Fixed const c(42.42f);
-	Fixed const d(b);
-	Fixed i(15.63f);
-	Fixed j(10.65f);
+	Point	a(1, 2);
+	Point	b(-6, -3);
+	Point	c(3, -2);
+	Point	point(-1, -2);
+	Point	point1(-5, -4);
+	bool	is_in;
 
-	std::cout << "----------------------- VALUES -------------------------------" << std::endl;
-	std:: cout << "a : " << a << std::endl;
-	std:: cout << "b : " << b << std::endl;
-	std:: cout << "c : " << c << std::endl;
-	std:: cout << "d : " << d << std::endl;
-
-	std::cout << "---------------- COMPARISON OPERATORS ------------------------" << std::endl;
-	if (a < b)
-		std::cout << "a < b" << std::endl;
+	is_in = bsp(a, b, c, point);
+	if (is_in)
+		std::cout << "Le point est dans la triangle" << std::endl;
 	else
-		std::cout << "a > b" << std::endl;
-	if (d > b)
-		std::cout << "d > b" << std::endl;
+		std::cout << "Le point n'est pas dans la triangle" << std::endl;
+	is_in = bsp(a, b, c, point1);
+	if (is_in)
+		std::cout << "Le point est dans la triangle" << std::endl;
 	else
-		std::cout << "d < b" << std::endl;
-	if (a <= b)
-		std::cout << "a <= b" << std::endl;
-	else
-		std::cout << "a >= b" << std::endl;
-	if (a >= b)
-		std::cout << "a >= b" << std::endl;
-	else
-		std::cout << "a <= b" << std::endl;
-	if (b == d)
-		std::cout << "b == d" << std::endl;
-	else
-		std::cout << "b != d" << std::endl;
-	if (a != d)
-		std::cout << "a != d" << std::endl;
-	else
-		std::cout << "a == d" << std::endl;
-
-	std::cout << "---------------- ARITHMETIC OPERATORS ------------------------" << std::endl;
-	std::cout << "a + b = " << a + b << std::endl;
-	std::cout << "a - b = " << a - b << std::endl;
-	std::cout << "a * b = " << a * b << std::endl;
-	std::cout << "a / b = " << a / b << std::endl;
-
-	std::cout << "--------------- INCREMENT / DECREMENT OPERATORS --------------" << std::endl;
-	std :: cout << "i = " << i << std::endl;
-	std::cout << "++i = " << ++i << std::endl;
-	std::cout << "--i = " << --i << std::endl;
-	std :: cout << "i = " << i << std::endl;
-	std::cout << "i++ = " << i++ << std::endl;
-	std :: cout << "i = " << i << std::endl;
-	std::cout << "i-- = " << i-- << std::endl;
-	std :: cout << "i = " << i << std::endl;
-
-	std::cout << "--------------- INCREMENT / DECREMENT OPERATORS --------------" << std::endl;
-	std::cout << "min(a, b) = " << Fixed::min(a,b) << std::endl;
-	std::cout << "const min(i, j) = " << Fixed::min(i,j) << std::endl;
-	std::cout << "max(a, b) = " << Fixed::max(a,b) << std::endl;
-	std::cout << "const max(i, j) = " << Fixed::max(i,j) << std::endl;
-
+		std::cout << "Le point n'est pas dans la triangle" << std::endl;
 	return (0);
 }
  

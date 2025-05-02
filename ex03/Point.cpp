@@ -15,31 +15,30 @@
 Point::Point(void)
 : x(0), y(0)
 {
-	std::cout << "Point default constructor" << std::endl;
 }
 
 Point::Point(const Fixed n_x, const Fixed n_y)
 : x(n_x), y(n_y)
 {
-	std::cout << "Point constructor" << std::endl;
 }
 
 Point::Point(const Point &f)
 : x(f.x), y(f.y)
 {
-	std::cout << "Point copy constructor" << std::endl;
 }
 
 Point	&Point::operator=(const Point &obj)
 {
-	this->setX(obj.x);
-	this->setY(obj.y);
-	std::cout << "Point assignment operator" << std::endl;
+	if (this != &obj)
+	{
+		this->setX(obj.x);
+		this->setY(obj.y);
+	}
+	return (*this);
 }
 
 Point::~Point(void)
 {
-	std::cout << "Point default destructor" << std::endl;
 }
 
 Fixed	Point::getX(void) const
