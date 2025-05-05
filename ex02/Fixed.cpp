@@ -130,17 +130,12 @@ Fixed	Fixed::operator*(const Fixed &f) const
 
 Fixed	Fixed::operator/(const Fixed &f) const
 {
-	if (f.val == 0)
-		return (0);
-	Fixed	obj(this->val / f.val);
-
+	Fixed	obj(0);
+	if (f.toFloat() != 0)
+	{
+		obj.setRawBits(roundf((this->toFloat() / f.toFloat()) * (1 << nb_bits)));
+	}
 	return (obj);
-	// Fixed	obj(0);
-	// if (f.toFloat() != 0)
-	// {
-	// 	obj.setRawBits(roundf((this->toFloat() / f.toFloat()) * (1 << nb_bits)));
-	// }
-	// return (obj);
 }
 
 // ITERATION OPERATORS
