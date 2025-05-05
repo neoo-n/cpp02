@@ -19,19 +19,22 @@ int	main(void)
 	Point	c(3, -2);
 	Point	point(-1, -2);
 	Point	point1(-5, -4);
-	Point	point2(1, 2);
+	Point	point2(2, 0);
 	bool	is_in;
 
+	std::cout << "---------------------------------- OUT -------------------------------" << std::endl;
 	is_in = bsp(a, b, c, point);
 	if (is_in)
 		std::cout << "Le point est dans la triangle" << std::endl;
 	else
 		std::cout << "Le point n'est pas dans la triangle" << std::endl;
+	std::cout << "---------------------------------- IN -------------------------------" << std::endl;
 	is_in = bsp(a, b, c, point1);
 	if (is_in)
 		std::cout << "Le point est dans la triangle" << std::endl;
 	else
 		std::cout << "Le point n'est pas dans la triangle" << std::endl;
+	std::cout << "---------------------------------- ON EDGE -------------------------------" << std::endl;
 	is_in = bsp(a, b, c, point2);
 	if (is_in)
 		std::cout << "Le point est dans la triangle" << std::endl;
