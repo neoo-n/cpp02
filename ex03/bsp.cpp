@@ -6,7 +6,7 @@
 /*   By: dvauthey <dvauthey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/02 10:50:40 by dvauthey          #+#    #+#             */
-/*   Updated: 2025/05/02 11:45:28 by dvauthey         ###   ########.fr       */
+/*   Updated: 2025/05/05 11:55:59 by dvauthey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,9 @@ bool	bsp(Point const a, Point const b, Point const c, Point const point)
 	area1 = area(a, b, point);
 	area2 = area(a, c, point);
 	area3 = area(c, b, point);
+	if (area1 == 0 || area2 == 0 || area3 == 0)
+		return (false);
 	total = area1 + area2 + area3;
-	std::cout << v_area << " " << area1 << " " << area2 << " " << area3 << " " << total << std::endl;
 	if (total == v_area)
 		return (true);
 	return (false);
