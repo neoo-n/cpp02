@@ -28,7 +28,8 @@ Fixed::Fixed(const Fixed &obj)
 
 Fixed	&Fixed::operator=(const Fixed &obj)
 {
-	this->val = obj.getRawBits();
+	if (this != &obj)
+		this->val = obj.getRawBits();
 	std::cout << "Assignement operator called" << std::endl;
 	return (*this);
 }

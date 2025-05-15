@@ -37,7 +37,8 @@ Fixed::Fixed(const float i)
 
 Fixed	&Fixed::operator=(const Fixed &obj)
 {
-	this->val = obj.getRawBits();
+	if (this != &obj)
+		this->val = obj.getRawBits();
 	return (*this);
 }
 
@@ -50,13 +51,11 @@ Fixed::~Fixed(void)
 // VAL
 int		Fixed::getRawBits(void) const
 {
-	// std::cout << "getRawBits fct called" << std::endl;
 	return (val);
 }
 
 void	Fixed::setRawBits(int const raw)
 {
-	// std::cout << "setRawBits fct called" << std::endl;
 	val = raw;
 }
 
